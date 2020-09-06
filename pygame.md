@@ -86,7 +86,7 @@ if event.type == pygame.KEYDOWN:
 pygame.quit()
 
 ```
-화면이 어두운색으로 바뀌고 스프라이트 그룹에 요소들을 다 보여준후 시간을 멈추고 pygame은 종료됩니다.<br>
+화면이 어두운색으로 바뀌고 스프라이트 그룹에 요소들을 다 보여준후 시간을 멈추고 pygame은 종료됩니다.<br><br>
 <img src="pygame_1.gif" width="600px"/>
 
 
