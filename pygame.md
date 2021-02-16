@@ -261,3 +261,206 @@ bullet_list = pygame.sprite.Group()
 ```
 위 프로젝트를 실행시키면 아래와 같이 빨간 사각형이 마우스를 따라 움직이며 클릭 시 총알이 발사되는 모습을 확인할 수 있습니다.<br>
 <img src="pygame_3.gif" width="600px"/>
+
+### 4.2 'tkinker' 실습 2
+
+
+```python
+from tkinter import *
+window=Tk()
+
+btn=Button(window, text="This is Button widget", fg='blue')
+btn.place(x=80, y=100)
+
+lbl=Label(window, text="This is Label widget", fg='red', font=("Helvetica", 16))
+lbl.place(x=60, y=50)
+
+txtfld=Entry(window, text="This is Entry Widget", bd=5)
+txtfld.place(x=80, y=150)
+
+window.title('Hello Python')
+window.geometry("300x200+10+20")
+window.mainloop()
+```
+tkinker 실습이므로, tkinker모듈을 가져옵니다.<br>
+Tk()함수를 이용해 window를 생성하고 그 안에 여러 widget을 추가 합니다.<br>
+widget을 button, label, entry 세가지 형태로 추가합니다.<br>
+window의 title을 Hello Python으로 지정해주고, 크기도 정해줍니다.<br>
+위 프로젝트를 실행시키면 아래와 같은 window 를 확인할 수 있습니다.<br>
+<img src="tkinter_2.JPG" width="600px"/>
+
+```python
+from tkinter import *
+from tkinter.ttk import Combobox
+window=Tk()
+var = StringVar()
+var.set("one")
+data=("one", "two", "three", "four")
+cb=Combobox(window, values=data)
+cb.place(x=60, y=150)
+
+lb=Listbox(window, height=5, selectmode='multiple')
+for num in data:
+    lb.insert(END,num)
+lb.place(x=250, y=150)
+
+v0=IntVar()
+v0.set(1)
+r1=Radiobutton(window, text="male", variable=v0,value=1)
+r2=Radiobutton(window, text="female", variable=v0,value=2)
+r1.place(x=100,y=50)
+r2.place(x=180, y=50)
+                
+v1 = IntVar()
+v2 = IntVar()
+C1 = Checkbutton(window, text = "Cricket", variable = v1)
+C2 = Checkbutton(window, text = "Tennis", variable = v2)
+C1.place(x=100, y=100)
+C2.place(x=180, y=100)
+
+window.title('Hello Python')
+window.geometry("400x300+10+10")
+window.mainloop()
+```
+tkinker 실습이므로, tkinker모듈을 가져옵니다.<br>
+
+Radiobutton: 이 위젯은 ON/OFF 상태를 가진 토글 단추를 표시합니다. 단추가 두 개 이상 있을 수 있지만 한 번에 하나만 켜져 있습니다.<br>
+
+Checkbutton: 이 버튼도 토글 버튼입니다. 캡션 앞에 직사각형 확인란이 나타납니다. ON 상태는 상자에 있는 눈금 표시로 표시되며 OFF를 클릭하면 사라집니다.<br>
+
+Combobox: 이 클래스는 tkinter 패키지의 ttk 모듈에 정의되어 있습니다. 목록에서 하나의 값만 선택하는 드롭 다운 데이터만 허용합니다. <br>
+
+Listbox: 콤보 상자와는 달리 이 위젯은 문자열 항목의 전체 컬렉션을 표시합니다. 사용자는 하나 이상의 항목을 선택할 수 있습니다.<br>
+위 프로젝트를 실행시키면 아래와 같은 window 를 확인할 수 있습니다.<br>
+<img src="tkinter_21.JPG" width="600px"/>
+```python
+from tkinter import *
+class MyWindow:
+    def __init__(self, win):
+        self.lbl1=Label(win, text='First number')
+        self.lbl2=Label(win, text='Second number')
+        self.lbl3=Label(win, text='Result')
+        self.t1=Entry(bd=3)
+        self.t2=Entry()
+        self.t3=Entry()
+        self.btn1 = Button(win, text='Add')
+        self.btn2=Button(win, text='Subtract')
+        self.lbl1.place(x=100, y=50)
+        self.t1.place(x=200, y=50)
+        self.lbl2.place(x=100, y=100)
+        self.t2.place(x=200, y=100)
+        self.b1=Button(win, text='Add', command=self.add)
+        self.b2=Button(win, text='Subtract')
+        self.b2.bind('<Button-1>', self.sub)
+        self.b1.place(x=100, y=150)
+        self.b2.place(x=200, y=150)
+        self.lbl3.place(x=100, y=200)
+        self.t3.place(x=200, y=200)
+    def add(self):
+        self.t3.delete(0, 'end')
+        num1=int(self.t1.get())
+        num2=int(self.t2.get())
+        result=num1+num2
+        self.t3.insert(END, str(result))
+    def sub(self, event):
+        self.t3.delete(0, 'end')
+        num1=int(self.t1.get())
+        num2=int(self.t2.get())
+        result=num1-num2
+        self.t3.insert(END, str(result))
+
+window=Tk()
+mywin=MyWindow(window)
+window.title('Hello Python')
+window.geometry("400x300+10+10")
+window.mainloop()
+
+```
+<br>
+
+
+### 4.2 'tkinker' 실습 3
+```python
+from tkinter import *
+import time
+
+window = Tk()
+window.title("nemoRPG")
+window.resizable(0,0)
+canvas = Canvas(window, width = 640, height = 640, bg = "white")
+canvas.pack()
+```
+tkinter 모듈과 time라이브러리를 불러옵니다.
+canvas 크기를 정해주고, pack() 해줍니다.
+
+```python
+from tkinter import *
+import time
+
+window = Tk()
+window.title("nemoRPG")
+window.resizable(0,0)
+canvas = Canvas(window, width = 640, height = 640, bg = "white")
+canvas.pack()
+
+class Game:
+    def __init__(self):
+        self.keys =set()
+        window.bind("<KeyPress>", self.keyPressHandler)
+        window.bind("<KeyRelease>", self.keyReleaseHandler)
+
+        test = canvas.create_rectangle(310, 310, 330, 330, fill = "black")
+
+        while(1):
+            for key in self.keys:
+                if key == ord('A'):
+                    canvas.move(test, -5, 0)
+
+            window.update()
+            time.sleep(0.01)
+
+def keyPressHandler(self, event):
+    self.keys.add(event.keycode)
+
+def keyReleaseHandler(self, event):
+    if event.keycode in self.keys:
+        self.keys.remove(event.keycode)
+
+Game()
+```
+
+```python
+from tkinter import *
+import time
+
+window = Tk()
+window.title("nemoRPG")
+window.resizable(0,0)
+canvas = Canvas(window, width = 640, height = 640, bg = "white")
+canvas.pack()
+
+class Game:
+    def __init__(self):
+        self.keys =set()
+        window.bind("<KeyPress>", self.keyPressHandler)
+        window.bind("<KeyRelease>", self.keyReleaseHandler)
+
+        test = canvas.create_rectangle(310, 310, 330, 330, fill = "black")
+
+        while(1):
+            for key in self.keys:
+                if key == ord('A'):
+                    canvas.move(test, -5, 0)
+
+            window.update()
+            time.sleep(0.01)
+
+def keyPressHandler(self, event):
+    self.keys.add(event.keycode)
+
+def keyReleaseHandler(self, event):
+    if event.keycode in self.keys:
+        self.keys.remove(event.keycode)
+
+Game()
+```
