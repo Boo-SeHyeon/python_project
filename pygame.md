@@ -287,7 +287,7 @@ Tk()함수를 이용해 window를 생성하고 그 안에 여러 widget을 추�
 widget을 button, label, entry 세가지 형태로 추가합니다.<br>
 window의 title을 Hello Python으로 지정해주고, 크기도 정해줍니다.<br>
 위 프로젝트를 실행시키면 아래와 같은 window 를 확인할 수 있습니다.<br>
-<img src="tkinter_2.JPG" width="600px"/>
+<img src="tkinter_2.JPG" width="400px"/>
 
 ```python
 from tkinter import *
@@ -332,7 +332,7 @@ Combobox: 이 클래스는 tkinter 패키지의 ttk 모듈에 정의되어 있�
 
 Listbox: 콤보 상자와는 달리 이 위젯은 문자열 항목의 전체 컬렉션을 표시합니다. 사용자는 하나 이상의 항목을 선택할 수 있습니다.<br>
 위 프로젝트를 실행시키면 아래와 같은 window 를 확인할 수 있습니다.<br>
-<img src="tkinter_21.JPG" width="600px"/>
+<img src="tkinter_21.JPG" width="400px"/>
 ```python
 from tkinter import *
 class MyWindow:
@@ -380,7 +380,7 @@ window.mainloop()
 위 프로젝트에는 두 개의 텍스트 입력 필드와 결과를 표시하는 다른 텍스트 입력 필드가 있습니다.<br> 덧셈 및 뺄셈 캡션이 있는 두 개의 단추 개체가 있습니다. 사용자는 두 항목 위젯에 번호를 입력할 수 있습니다. 이들의 덧셈 또는 뺄셈의 결과가 세 번째에 표시됩니다.
 
 첫 번째 단추(add)는 명령 매개 변수를 사용하여 구성됩니다. 그 값은 클래스의 메서드입니다. 두 번째 버튼은 메소드를 사용하여 마우스 왼쪽 버튼 클릭을 메소드에 등록합니다. <br> 두 방법 모두 항목 위젯의 방법으로 텍스트 필드의 내용을 읽고, 숫자를 분석하여 덧셈/뺄셈을 수행하고 메서드를 사용하여 결과를 세 번째 텍스트 필드에 표시합니다.<br>
-
+<img src="tkinter_22.JPG" width="400px"/>
 ### 4.2 'tkinker' 실습 3
 ```python
 from tkinter import *
