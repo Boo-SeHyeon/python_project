@@ -376,8 +376,10 @@ window.geometry("400x300+10+10")
 window.mainloop()
 
 ```
-<br>
+<br> bind() 메소드를 이용하여 <Button-1> 이라는 이벤트가 발생할때 self.sub라는 함수를 연결해줍니다.<br>
+위 프로젝트에는 두 개의 텍스트 입력 필드와 결과를 표시하는 다른 텍스트 입력 필드가 있습니다.<br> 덧셈 및 뺄셈 캡션이 있는 두 개의 단추 개체가 있습니다. 사용자는 두 항목 위젯에 번호를 입력할 수 있습니다. 이들의 덧셈 또는 뺄셈의 결과가 세 번째에 표시됩니다.
 
+첫 번째 단추(add)는 명령 매개 변수를 사용하여 구성됩니다. 그 값은 클래스의 메서드입니다. 두 번째 버튼은 메소드를 사용하여 마우스 왼쪽 버튼 클릭을 메소드에 등록합니다. <br> 두 방법 모두 항목 위젯의 방법으로 텍스트 필드의 내용을 읽고, 숫자를 분석하여 덧셈/뺄셈을 수행하고 메서드를 사용하여 결과를 세 번째 텍스트 필드에 표시합니다.<br>
 
 ### 4.2 'tkinker' 실습 3
 ```python
@@ -391,7 +393,8 @@ canvas = Canvas(window, width = 640, height = 640, bg = "white")
 canvas.pack()
 ```
 tkinter 모듈과 time라이브러리를 불러옵니다.
-canvas 크기를 정해주고, pack() 해줍니다.
+canvas 크기를 정해주고, pack() 하여 화면에 표시해 줍니다.<br>
+실행하면 네모난 창이 생기고 이는 게임의 틀이자 룸으로 불리는 배경이 생깁니다.<br>
 
 ```python
 from tkinter import *
@@ -428,7 +431,15 @@ def keyReleaseHandler(self, event):
 
 Game()
 ```
+Game 클래스는 UI드로잉과 버튼 감지 다른 오브젝트들의 스텝을 처리해줍니다.<br>
+while 문으로 계속 업데이트 하여 움직이는 효과를 줍니다.<br>\
+위 프로젝트를 실행시키면 키보드의 'A' 키를 눌렀을 때 네모가 왼쪽으로 움직이는 것을 확인할 수 있습니다.
+<br><img src="tkinter31.gif" width="600px"/><br>
+버튼을 눌렀을때 keyPressHandler함수가 keys 세트에 버튼을 추가해 줍니다. 땠을때는 반대로 keyRelasedHandler함수가 작동하여 세트에서 버튼을 제거해 줍니다.<br>
 
+이후 수정된 keys세트를 메인 루프에서 for문으로 돌려 버튼을 하나하나 체크해 줍니다. 해당키가 눌러졌으면, 캠퍼스를 이동합니다.<br>
+
+while 문의 window.update 함수는 반복문이 실행될 때마다 canvas에서 변경된 값들을 업데이트 해 줍니다. time.sleep 함수는 해당 시간만큼 딜레이를 주어 게임의 속도를 조절해 줍니다.<br>
 ```python
 from tkinter import *
 import time
@@ -451,16 +462,24 @@ class Game:
             for key in self.keys:
                 if key == ord('A'):
                     canvas.move(test, -5, 0)
+                if key == ord('D'):
+                    canvas.move(test, 5, 0)
+                if key == ord('W'):
+                    canvas.move(test, 0, -5)
+                if key == ord('S'):
+                    canvas.move(test, 0, 5)
 
             window.update()
             time.sleep(0.01)
 
-def keyPressHandler(self, event):
-    self.keys.add(event.keycode)
+    def keyPressHandler(self, event):
+            self.keys.add(event.keycode)
 
-def keyReleaseHandler(self, event):
-    if event.keycode in self.keys:
-        self.keys.remove(event.keycode)
+    def keyReleaseHandler(self, event):
+        if event.keycode in self.keys:
+            self.keys.remove(event.keycode)
 
 Game()
 ```
+위 프로젝트는 기존 프로젝트에서 버튼만 여러개 추가 시킨 것으로 4방향으로 이동하는 게임을 구현할 수 있습니다.
+<br><img src="tkinter32.gif" width="600px"/><br>
